@@ -210,19 +210,14 @@ npm run test
 
 仓库目标是用户站点 `wensijia.github.io`，因此 `vite.config.ts` 中 `base: '/'`。
 
-### 首次部署
+### 当前部署状态
 
-1. 在 GitHub 仓库 **Settings → Pages → Build and deployment** 中，将 **Source** 设为 **GitHub Actions**。
-2. 当前仓库的默认分支是 `master`，本地开发分支是 `portfolio-vue`，旧站历史保留在本地 `legacy-static-backup` 分支（基于提交 `8c3bb30`）。工作流同时监听 `main` 和 `master`。
-3. 审核并提交 `portfolio-vue` 后，将改动合并到 `master`。如果远端 `master` 仍停在 `8c3bb30`，也可以在确认无分叉后执行：
+1. GitHub 仓库 **Settings → Pages → Build and deployment** 的 **Source** 已设为 **GitHub Actions**。
+2. 默认分支是 `master`，当前站点提交为 `750a45f`；旧站历史同时保留在远端 `legacy-static-backup` 分支和本地 bundle `D:\简历\wensijia-pages-legacy-backup.bundle`。
+3. 当前线上地址：`https://wensijia.github.io/`。
+4. Actions 运行记录：**Actions → Deploy portfolio to GitHub Pages**。
 
-   ```bash
-   git push origin portfolio-vue:master
-   ```
-
-   更稳妥的方式是推送 `portfolio-vue` 并在 GitHub 上发起 Pull Request，检查通过后再合并到 `master`。
-4. 打开 **Actions → Deploy portfolio to GitHub Pages** 查看运行结果。
-5. 部署成功后访问：`https://wensijia.github.io/`。
+日常更新直接提交到 `master` 即可触发部署；也可以新建分支发起 Pull Request，检查通过后再合并。
 
 工作流顺序为：
 

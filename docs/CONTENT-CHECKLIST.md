@@ -134,10 +134,10 @@ npm run preview
 
 ## 10. GitHub Pages
 
-- [ ] 仓库 Settings → Pages → Source 选择 **GitHub Actions**。
-- [ ] 代码推送到 `main` 或 `master` 后，Actions 的检查与构建 job 成功。
-- [ ] `deploy` job 成功，环境 URL 可访问。
-- [ ] 线上访问 `https://wensijia.github.io/` 检查资源 200、无控制台错误。
+- [x] 仓库 Settings → Pages → Source 已选择 **GitHub Actions**。
+- [x] 代码推送到 `master` 后，Actions 的检查与构建 job 成功。
+- [x] `deploy` job 成功，环境 URL 可访问。
+- [x] 线上访问 `https://wensijia.github.io/` 检查资源 200、无控制台错误。
 - [ ] 在手机上实际打开线上地址，测试 PDF 下载和邮件链接。
 - [ ] 如需自定义域名，配置 DNS、Custom domain 和 `public/CNAME`。
 
