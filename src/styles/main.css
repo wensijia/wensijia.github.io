@@ -1,0 +1,177 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    font-size: 17px;
+    scroll-behavior: smooth;
+    scroll-padding-top: 6.25rem;
+  }
+
+  @media (min-width: 640px) {
+    html {
+      font-size: 18px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    html {
+      font-size: 20px;
+    }
+  }
+
+  @media (min-width: 1700px) {
+    html {
+      font-size: 23px;
+    }
+  }
+
+  body {
+    @apply bg-white font-sans text-ink antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-semibold tracking-[-0.025em] text-ink;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  a,
+  button {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-accent ring-offset-2 ring-offset-white;
+  }
+
+  ::selection {
+    @apply bg-accent/15 text-ink;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      scroll-behavior: auto !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-page;
+    padding-inline: 1.25rem;
+  }
+
+  @media (min-width: 640px) {
+    .container-page {
+      padding-inline: 2rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container-page {
+      padding-inline: clamp(3rem, 5vw, 5rem);
+    }
+  }
+
+  .section-shell {
+    @apply py-20 md:py-28;
+  }
+
+  .eyebrow {
+    @apply font-mono text-[0.6875rem] font-medium uppercase tracking-[0.18em] text-accent;
+  }
+
+  .section-title {
+    @apply text-[2rem] leading-[1.12] sm:text-[2.5rem] lg:text-[2.75rem];
+  }
+
+  .btn {
+    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium transition duration-200 ease-smooth focus-visible:ring-offset-2;
+  }
+
+  .btn svg {
+    width: 1.05em;
+    height: 1.05em;
+  }
+
+  .btn-primary {
+    @apply btn bg-accent text-white shadow-[0_10px_24px_-14px_rgba(31,111,235,0.9)] hover:-translate-y-0.5 hover:bg-accent-strong hover:shadow-[0_16px_28px_-14px_rgba(31,111,235,0.75)] active:translate-y-0;
+  }
+
+  .btn-secondary {
+    @apply btn border border-line bg-white text-ink hover:-translate-y-0.5 hover:border-ink/25 hover:bg-mist active:translate-y-0;
+  }
+
+  .btn-dark {
+    @apply btn bg-white text-navy hover:-translate-y-0.5 hover:bg-accent-soft active:translate-y-0;
+  }
+
+  .btn-dark-outline {
+    @apply btn border border-white/20 text-white hover:-translate-y-0.5 hover:border-white/40 hover:bg-white/10 active:translate-y-0;
+  }
+
+  .card {
+    @apply rounded-2xl border border-line bg-white shadow-card;
+  }
+
+  .tag {
+    @apply inline-flex items-center rounded-full border border-line bg-mist px-2.5 py-1 font-mono text-[0.6875rem] leading-none text-ink-soft;
+  }
+
+  .tag-dark {
+    @apply inline-flex items-center rounded-full border border-white/15 bg-white/5 px-2.5 py-1 font-mono text-[0.6875rem] leading-none text-white/75;
+  }
+
+  .icon-tile {
+    @apply flex size-11 shrink-0 items-center justify-center rounded-xl border border-accent/15 bg-accent-soft text-accent;
+  }
+
+  .icon-tile svg {
+    width: 1.15em;
+    height: 1.15em;
+  }
+
+  .grid-field {
+    background-image:
+      linear-gradient(rgba(31, 111, 235, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(31, 111, 235, 0.06) 1px, transparent 1px);
+    background-size: 4rem 4rem;
+    -webkit-mask-image: linear-gradient(to bottom, black 0%, transparent 88%);
+    mask-image: linear-gradient(to bottom, black 0%, transparent 88%);
+  }
+
+  .grid-field-dark {
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
+    background-size: 4rem 4rem;
+    -webkit-mask-image: radial-gradient(ellipse at 70% 30%, black 0%, transparent 72%);
+    mask-image: radial-gradient(ellipse at 70% 30%, black 0%, transparent 72%);
+  }
+
+  .skip-link {
+    @apply fixed left-4 top-3 z-[70] -translate-y-20 rounded-lg bg-navy px-4 py-3 text-sm font-medium text-white transition focus:translate-y-0;
+  }
+}

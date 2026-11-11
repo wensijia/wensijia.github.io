@@ -1,0 +1,5 @@
+export { profile } from './profile'
+export { skillCategories } from './skills'
+export { experience } from './experience'
+export { projects } from './projects'
+export { education, certifications } from './education'
