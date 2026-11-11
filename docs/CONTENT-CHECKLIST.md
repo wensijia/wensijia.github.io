@@ -16,6 +16,7 @@
 | 头像 | WSJ 字母标识，未使用个人照片 |
 | PDF 简历 | 2 页中文版，已隐去手机号 |
 | 项目链接 | 无公开链接，`links: {}` |
+| 访问统计 | 不蒜子：本站访问、访客、本页浏览，显示在页脚 |
 
 可选补充：个人照片、GitHub / LinkedIn、项目演示链接、英文 PDF。没有的内容保持为空，不要为了“完整”而虚构。
 
@@ -114,7 +115,16 @@
 - [x] 所有图片有替代文本；仅图标按钮有 `aria-label`。
 - [x] 系统开启“减少动态效果”后，页面无强制动画（构建 CSS 已包含对应媒体查询）。
 
-## 9. 上线前命令
+## 9. 访问统计
+
+- [x] 页脚展示本站访问量、访客数、本页浏览量，数据来自不蒜子。
+- [x] 统计脚本由 `src/utils/analytics.ts` 注入，只在 `wensijia.github.io` 加载。
+- [x] 本地开发与普通 preview 默认不加载，避免污染线上数据，页脚显示 `—`。
+- [x] 服务失败时保留 `—` 占位，不影响页面渲染。
+- [x] 不设置 Cookie，不读取姓名、邮箱或表单内容；README 已披露第三方请求信息。
+- [ ] 部署后在线上确认三个数字能正常回填，并刷新一次验证本页浏览量递增。
+
+## 10. 上线前命令
 
 ```bash
 npm run lint
@@ -126,13 +136,13 @@ npm run preview
 
 - [x] `npm run lint`：0 error / 0 warning。
 - [x] `npm run typecheck`：通过。
-- [x] `npm run test`：3 files / 12 tests 通过。
+- [x] `npm run test`：4 files / 14 tests 通过。
 - [x] `npm run build`：真实资料版本构建成功。
 - [x] `npm run preview`：检查首页、锚点、语言切换、4 个项目弹窗、PDF 下载、复制邮箱。
 - [x] 检查 `dist/` 中包含 `index.html`、`favicon.svg`、`resume/` 和 `.nojekyll`。
 - [x] 确认没有把 `node_modules/`、`dist/`、临时截图脚本或密钥加入 Git。
 
-## 10. GitHub Pages
+## 11. GitHub Pages
 
 - [x] 仓库 Settings → Pages → Source 已选择 **GitHub Actions**。
 - [x] 代码推送到 `master` 后，Actions 的检查与构建 job 成功。
@@ -141,12 +151,13 @@ npm run preview
 - [ ] 在手机上实际打开线上地址，测试 PDF 下载和邮件链接。
 - [ ] 如需自定义域名，配置 DNS、Custom domain 和 `public/CNAME`。
 
-## 11. 隐私与真实性最终确认
+## 12. 隐私与真实性最终确认
 
 - [x] 工作经历、学历、项目成果和技能水平来自所有者提供的简历。
 - [x] 简历中的量化指标原样使用，没有放大或补造。
 - [x] 网站与 PDF 未公开手机号。
 - [x] 公开邮箱 `wensijia0123@qq.com` 为所有者提供。
+- [x] 访问统计使用不蒜子聚合计数，不设置 Cookie、不采集表单内容。
 - [ ] 所有者确认项目中的客户/前雇主信息可以公开发布，或完成进一步匿名化。
 - [ ] 若补充个人照片、社交链接或项目链接，确认其适合公开。
 

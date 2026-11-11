@@ -138,11 +138,15 @@ export default {
       'A static PDF keeps the download reliable and works on every device.',
     resumeMeta: 'PDF · Static file',
     socialLabel: 'Find me online',
-    note: 'No backend. No tracking. Just a clear way to get in touch.',
+    note: 'No backend. Just a clear way to get in touch, with lightweight page-view statistics.',
   },
   footer: {
     tagline: 'Clear design, honest content, useful technology.',
     rights: 'All rights reserved.',
     builtWith: 'Built with Vue 3, TypeScript and Vite.',
+    analyticsLabel: 'Site statistics',
+    siteViews: 'Site visits',
+    uniqueVisitors: 'Visitors',
+    pageViews: 'This page',
   },
 }

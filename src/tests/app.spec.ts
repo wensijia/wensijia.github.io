@@ -58,6 +58,8 @@ describe('portfolio application', () => {
     expect(wrapper.get('h1').text()).toBe('温思嘉')
     expect(document.title).toContain('温思嘉')
     expect(document.documentElement.lang).toBe('zh-CN')
+    expect(wrapper.get('[data-testid="analytics-stats"]').text()).toContain('本页浏览')
+    expect(document.getElementById('busuanzi-page-view-script')).toBeNull()
   })
 
   it('switches the interface and document metadata to English', async () => {

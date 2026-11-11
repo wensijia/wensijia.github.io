@@ -59,6 +59,7 @@ Node.js 版本要求 `>=20`。依赖使用固定版本，不使用 `^` 或 `~`�
 │   ├── styles/main.css            # Tailwind 入口与共享样式
 │   ├── tests/                     # Vitest 测试与 jsdom 环境设置
 │   ├── types/content.ts           # 内容数据模型
+│   ├── utils/analytics.ts         # 不蒜子统计脚本注入与生产域名守卫
 │   ├── utils/assetUrl.ts          # 兼容 Vite base 的资源 URL
 │   ├── App.vue
 │   └── main.ts
@@ -136,8 +137,17 @@ Node.js 版本要求 `>=20`。依赖使用固定版本，不使用 `^` 或 `~`�
 
 - 修改数据或 i18n 后至少运行 `npm run test`。
 - 新增交互时补充测试，优先覆盖用户可见行为，而不是实现细节。
-- 当前测试覆盖：七个区块渲染、语言切换与文档元数据、项目弹窗开关、PDF 下载、复制邮箱、双语键对齐、内容完整性、静态资源存在性。
+- 当前测试覆盖：七个区块渲染、语言切换与文档元数据、项目弹窗开关、PDF 下载、复制邮箱、双语键对齐、内容完整性、静态资源存在性、访问统计域名守卫与脚本注入。
 - 测试环境在 `src/tests/setup.ts` 中模拟 `IntersectionObserver`、`requestAnimationFrame` 和剪贴板。
+
+### 8. 访问统计
+
+- 浏览量统计只使用不蒜子（`busuanzi.ibruce.info`），页脚展示本站访问、访客和本页浏览三个聚合值。
+- 脚本只允许由 `src/utils/analytics.ts` 注入；不要在 `index.html` 中直接加第三方统计脚本，也不要叠加多个统计服务。
+- 生产环境只允许在 `wensijia.github.io` 加载；本地开发和 preview 默认不加载，页脚保留 `—` 占位，不要用查询参数绕过生产域名守卫。
+- 页脚必须保留 `busuanzi_container_site_pv`、`busuanzi_container_site_uv`、`busuanzi_container_page_pv` 及对应 `busuanzi_value_*` 元素，否则服务无法回填数字。
+- 服务不可用时保持 `—` 占位，不得让统计失败影响页面渲染。
+- 不加入 Cookie、用户画像、广告或跨站追踪；隐私说明必须与 README 的“访问统计”一致。
 
 ## 内容政策
 
@@ -161,5 +171,6 @@ Node.js 版本要求 `>=20`。依赖使用固定版本，不使用 `^` 或 `~`�
 - [ ] 七个区块 id 未改变，导航与滚动偏移正常。
 - [ ] 桌面 1440px、平板 768px、手机 390px 无横向溢出。
 - [ ] 键盘可以操作导航、语言切换、弹窗和复制邮箱。
+- [ ] 访问统计只在生产域名加载，失败时保留 `—` 占位。
 - [ ] `npm run lint`、`npm run typecheck`、`npm run test`、`npm run build` 全部通过。
 - [ ] 没有提交构建产物、依赖目录或敏感信息。

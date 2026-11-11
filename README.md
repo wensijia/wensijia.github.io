@@ -15,6 +15,7 @@
 - **项目详情**：卡片打开可访问的模态框，展示背景、方案、结果、职责、时间线、技术栈与链接；支持 ESC、焦点陷阱和滚动锁定。
 - **PDF 下载**：使用 `public/resume/` 下的静态文件，不依赖后端或第三方服务。
 - **联系方式**：邮箱 mailto、一键复制；配置社交链接后自动展示。
+- **访问统计**：页脚通过不蒜子显示本站访问量、访客数与本页浏览量；不使用 Cookie，不收集姓名或邮箱。
 - **响应式**：桌面、平板、手机；390px 宽度下无横向溢出，移动端单栏。根字号随断点从 17px 提升到 20px，2K 屏幕为 23px，版心最大 1600px；2K 屏幕 100% 即有舒适阅读尺寸，浏览器继续放大 125%/150% 时仍会逐级变大。
 - **可访问性**：语义化区块、可见焦点、跳过导航、`prefers-reduced-motion`、项目弹窗键盘操作。
 - **质量门禁**：ESLint、`vue-tsc`、Vitest、生产构建，全部通过后才允许部署。
@@ -111,6 +112,7 @@ npm run build
 │   ├── styles/main.css            # Tailwind 入口、设计系统与共享样式
 │   ├── tests/                     # 单元与集成测试
 │   ├── types/content.ts           # 内容类型定义
+│   ├── utils/analytics.ts         # 不蒜子脚本注入与生产域名守卫
 │   ├── utils/assetUrl.ts          # 兼容 Vite base 的资源地址
 │   ├── App.vue
 │   └── main.ts
@@ -130,7 +132,7 @@ npm run build
 编辑 `src/data/profile.ts`：
 
 - `name`：中英文姓名。
-- `initials`：导航栏与页脚的两字母缩写。
+- `initials`：导航栏与页脚的姓名缩写（当前为 `WSJ`）。
 - `role`、`headline`、`intro`：职位、主张和自我介绍。
 - `focus`：Hero 档案卡中的关注方向。
 - `availability`、`location`、`email`：求职状态、城市、邮箱。
@@ -179,6 +181,22 @@ npm run test
 npm run typecheck
 ```
 
+## 访问统计
+
+页脚使用 [不蒜子](https://busuanzi.ibruce.info/) 的公开计数服务，展示三个聚合数字：
+
+- **本站访问**：`site_pv`，站点累计访问量。
+- **访客**：`site_uv`，站点独立访客数。
+- **本页浏览**：`page_pv`，当前页面浏览量。
+
+实现位于 `src/utils/analytics.ts` 和 `src/components/AppFooter.vue`：
+
+- 脚本只在生产域名 `wensijia.github.io` 加载，避免本地开发污染线上数据；本地页面显示 `—` 占位，属正常现象。
+- 服务不可用或被浏览器拦截时，数字显示 `—`，不影响页面其他功能。
+- 脚本不使用 Cookie，也不会从本站读取姓名、邮箱或表单内容；服务商会收到当前页面地址、referrer 和常规请求信息。该统计是第三方服务，不是自建后端。
+
+更换统计服务时，替换 `injectBusuanziScript()`、页脚中三个 `busuanzi_*` 元素，并同步更新测试与本节说明；不要把多个统计脚本叠加加载。
+
 ## 设计规范
 
 - 主背景：白色；深色联系区：`navy`；强调色：`accent` 科技蓝。
@@ -196,7 +214,7 @@ npm run typecheck
 npm run test
 ```
 
-当前 12 个测试，覆盖：
+当前 14 个测试，覆盖：
 
 - 七个区块及其可访问名称。
 - 中文默认渲染、英文切换、`lang`、标题与本地存储。
@@ -205,6 +223,7 @@ npm run test
 - 中英文键与插值占位符一致性。
 - 所有双语内容非空、集合 id 唯一。
 - 头像和 PDF 静态文件存在、PDF 文件头有效、社交链接为 HTTPS。
+- 不蒜子生产域名守卫、脚本只注入一次、本地默认不加载。
 
 ## 部署到 GitHub Pages
 
@@ -213,7 +232,7 @@ npm run test
 ### 当前部署状态
 
 1. GitHub 仓库 **Settings → Pages → Build and deployment** 的 **Source** 已设为 **GitHub Actions**。
-2. 默认分支是 `master`，当前站点提交为 `750a45f`；旧站历史同时保留在远端 `legacy-static-backup` 分支和本地 bundle `D:\简历\wensijia-pages-legacy-backup.bundle`。
+2. 默认分支是 `master`，当前站点由 `master` 最新提交自动部署；旧站历史同时保留在远端 `legacy-static-backup` 分支和本地 bundle `D:\简历\wensijia-pages-legacy-backup.bundle`。
 3. 当前线上地址：`https://wensijia.github.io/`。
 4. Actions 运行记录：**Actions → Deploy portfolio to GitHub Pages**。
 
@@ -262,7 +281,8 @@ git push
 - 只有一份中文 PDF 简历；如需英文版本，需要扩展 `Profile` 类型与下载按钮逻辑。
 - 项目暂无公开演示或仓库链接，弹窗中显示邮件联系提示。
 - 头像为字母标识，未使用个人照片。
-- 没有联系表单、后端、访问统计或评论系统，符合纯静态部署目标。
+- 访问统计依赖不蒜子第三方服务；被拦截或服务不可用时页脚显示 `—`，不影响其他功能。
+- 没有联系表单、后端或评论系统，符合纯静态部署目标。
 - 内容来自所有者确认的简历；后续修改必须保持事实准确，参见 [内容替换清单](docs/CONTENT-CHECKLIST.md)。
 
 ## License
