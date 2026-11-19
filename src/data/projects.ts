@@ -110,8 +110,176 @@ export const projects: Project[] = [
     links: {},
   },
   {
-    id: 'provincial-platform-rebuild',
+    id: 'industry-college-platform',
     number: '03',
+    title: {
+      zh: '产业学院（cyxy）· 产教融合在线教育平台',
+      en: 'Industry College (cyxy) Industry-Education Platform',
+    },
+    subtitle: {
+      zh: '用技能树、考试、岗位实践与作品提交，把校企协同育人串成可追踪的成长路径。',
+      en: 'A skill-tree, exam and industry-practice platform that makes university-enterprise talent development traceable.',
+    },
+    description: {
+      zh: '面向产教融合与校企合作场景的在线教育平台，独立全栈开发，交付 34 个后端业务模块、32 个前端业务页面。',
+      en: 'An online education platform for industry-education collaboration. I delivered it solo, including 34 backend business modules and 32 frontend business pages.',
+    },
+    stack: ['Java 17', 'Spring Boot 3.2', 'MyBatis-Plus', 'Sa-Token', 'Flowable', 'bpmn-js', 'Vue 3', 'Element Plus', 'vxe-table', '微信小程序'],
+    year: '2024',
+    detail: {
+      problem: {
+        zh: '产教融合项目需要把技能学习、在线考试、企业岗位与实践报名、作品提交和学籍管理串起来，同时让多所学校在同一平台上保持数据隔离。',
+        en: 'Industry-education programmes needed to connect skill learning, online exams, employer job and practice applications, work submissions and student records, while serving multiple schools with isolated data.',
+      },
+      solution: {
+        zh: '以租户套餐和 MyBatis-Plus 租户插件做行级数据隔离，Redis 缓存键按租户隔离；建立“技能库—技能树—技能点—难度—学习资料”五级模型；把题库与技能点难度关联；集成 Flowable 7 与 bpmn-js 配置审批流程；补充企业子账号、岗位/实践报名、作品提交、学校—院系—专业学籍，以及微信小程序支付与钱包账户。',
+        en: 'Built a multi-tenant SaaS model with tenant packages, MyBatis-Plus row-level isolation and tenant-scoped Redis keys. Modelled a five-level skill tree from skill library to learning material, connected question banks to skill difficulty, integrated Flowable 7 and bpmn-js for configurable approvals, and added enterprise sub-accounts, job and practice applications, work submissions, school-department-major student records, plus WeChat mini-program payments and wallet accounts.',
+      },
+      impact: {
+        zh: '形成“技能树学习—在线考试—岗位/实践报名—作品提交”的培养闭环；独立交付 34 个后端业务模块和 32 个前端业务页面，支撑多所学校以 SaaS 方式运营。',
+        en: 'Formed a learning, exam, application and submission loop; delivered 34 backend modules and 32 frontend pages independently, supporting multiple schools through one multi-tenant platform.',
+      },
+      role: {
+        zh: '独立全栈开发（后端 + Web 管理端 + 微信小程序端）',
+        en: 'Solo Full-stack Developer (backend + web admin + WeChat mini-program)',
+      },
+      timeline: { zh: '2024.08 — 2024.10', en: '2024.08 — 2024.10' },
+      highlights: [
+        {
+          zh: '设计“技能库—技能树—技能点—技能点难度—学习资料”五级模型及关联关系，学员可按技能树报名并追踪进度。',
+          en: 'Designed the five-level model of skill library, skill tree, skill point, difficulty and learning material, with enrolment and progress tracking along each tree.',
+        },
+        {
+          zh: '建设知识点题库与技能点难度关联，支持在线考试和面试机考，形成“学—练—考—评”闭环。',
+          en: 'Built question banks linked to skill points and difficulty for online exams and interview tests, completing the learn-practise-test-assess loop.',
+        },
+        {
+          zh: '集成 Flowable 7 工作流与 bpmn-js 流程设计器，实现审批流程的可视化配置。',
+          en: 'Integrated Flowable 7 and the bpmn-js designer for visually configured approval workflows.',
+        },
+        {
+          zh: '交付企业/子账号/岗位、实践报名与作品提交、学籍体系，以及微信支付和钱包变更记录。',
+          en: 'Delivered enterprise, sub-account and job management, practice applications and work submissions, student records, and WeChat payment with wallet ledgers.',
+        },
+      ],
+    },
+    links: {},
+  },
+  {
+    id: 'training-saas-platform',
+    number: '04',
+    title: {
+      zh: '培训管理（pxgl）· 多租户 SaaS 培训运营平台',
+      en: 'Training Management (pxgl) Multi-tenant SaaS Platform',
+    },
+    subtitle: {
+      zh: '面向连锁门店培训批次，把课程、签到、缴费、食宿与开票退费串成一条运营闭环。',
+      en: 'A multi-tenant platform that connects courses, attendance, payments, accommodation and invoicing for chain-store training batches.',
+    },
+    description: {
+      zh: '基于 RuoYi-Vue-Plus 的多租户培训运营平台，服务连锁门店培训场景，独立负责后端、Web 管理端与微信小程序端。',
+      en: 'A multi-tenant training platform built on RuoYi-Vue-Plus for chain-store training operations, delivered solo across backend, web admin and WeChat mini-program.',
+    },
+    stack: ['Java 17', 'Spring Boot 3.1', 'MyBatis-Plus', 'Sa-Token', 'Redisson', 'PowerJob', 'IJPay', 'Vue 3', 'Element Plus', '微信小程序'],
+    year: '2024',
+    detail: {
+      problem: {
+        zh: '连锁门店的培训批次涉及报名、签到、资料、食宿、开票和退费，多个运营主体需要共用一套系统，但业务数据必须隔离。',
+        en: 'Chain-store training batches span registration, attendance, materials, accommodation, invoicing and refunds. Multiple operators needed one system with strictly isolated business data.',
+      },
+      solution: {
+        zh: '基于 RuoYi-Vue-Plus 搭建租户套餐与数据隔离；采用 Java 17、Spring Boot 3 与 MyBatis-Plus；用 Sa-Token 实现 PC 与小程序差异化登录；Redisson + lock4j 防止重复扣费；PowerJob 承接报表结算；建立开票单位、开票记录、商品明细与红冲流程。',
+        en: 'Built tenant packages and data isolation on RuoYi-Vue-Plus with Java 17, Spring Boot 3 and MyBatis-Plus. Sa-Token provides separate login strategies for PC and mini-program, Redisson and lock4j prevent duplicate charges, PowerJob runs report settlement, and the invoicing ledger covers issuers, records, line items and red-letter reversals.',
+      },
+      impact: {
+        zh: '形成课程—批次—签到—资料领取—团队报名/缴费—退费全链路；支持门店餐食住宿配置与批次报表；一套系统服务多个培训运营主体。',
+        en: 'Connected courses, batches, attendance, material collection, team registration and payment, and refunds. Store meal and accommodation settings feed batch reports, and one deployment serves multiple training operators.',
+      },
+      role: {
+        zh: '独立全栈开发（后端 + Web 管理端 + 微信小程序端）',
+        en: 'Solo Full-stack Developer (backend + web admin + WeChat mini-program)',
+      },
+      timeline: { zh: '2024.05 — 2024.07', en: '2024.05 — 2024.07' },
+      highlights: [
+        {
+          zh: '实现租户套餐、数据隔离与 PC/小程序差异化登录，支撑多运营主体共用平台。',
+          en: 'Implemented tenant packages, data isolation and differentiated PC/mini-program login for multiple operators.',
+        },
+        {
+          zh: '打通课程、批次、签到、资料领取、团队报名（Excel 批量导入）、团队缴费与退费申请。',
+          en: 'Connected courses, batches, attendance, material collection, team registration with Excel import, team payment and refund applications.',
+        },
+        {
+          zh: '建立开票单位、开票记录、发票商品明细与红冲台账，并支持门店餐食住宿及批次报表。',
+          en: 'Built an invoicing ledger with issuers, records, line items and red-letter reversals, plus store meal, accommodation and batch reports.',
+        },
+        {
+          zh: '用 Redisson + lock4j 防止重复扣费，PowerJob 执行报表结算，Spring Boot Admin 提供运行监控。',
+          en: 'Used Redisson and lock4j to prevent duplicate charges, PowerJob for report settlement and Spring Boot Admin for runtime monitoring.',
+        },
+      ],
+    },
+    links: {},
+  },
+  {
+    id: 'apartment-ops-platform',
+    number: '05',
+    title: {
+      zh: '壹柒云居 · 智能长租公寓运营管理系统',
+      en: 'Yiqi Yunju Smart Long-term Rental Apartment Platform',
+    },
+    subtitle: {
+      zh: '把资产、合同、租赁账务与 IoT 硬件管控连成一条可追溯的运营闭环。',
+      en: 'Connecting assets, contracts, rental accounting and IoT hardware control in one traceable operating loop.',
+    },
+    description: {
+      zh: '面向集中式公寓运营商的资产管理与租赁运营一体化平台，独立负责后端、Web 管理端和微信小程序端，覆盖四级资产、合同签约、租住订单、支付与钱包账务，并接入门锁、电表等 IoT 硬件。',
+      en: 'An integrated asset and rental operations platform for centralised apartment operators. I delivered the backend, web admin and WeChat mini-program, covering four-level assets, contracts, tenancy orders, payments and wallet ledgers, with IoT locks and meters connected.',
+    },
+    stack: ['Spring Boot 2.5', 'MyBatis', 'Redis', 'IJPay', '微信支付 V3/V2', '阿里云 OSS', 'iText', 'Vue 2', 'Element-UI', '微信小程序'],
+    year: '2023',
+    detail: {
+      problem: {
+        zh: '公寓运营需要同时管理“项目—楼栋—楼层—房间”四级资产、合同、租住订单、支付与钱包账务，并联动门锁、电表等硬件；任一环节脱节都会让租赁过程难以追溯。',
+        en: 'Apartment operations had to manage four-level assets, contracts, tenancy orders, payments and wallet ledgers while coordinating locks and meters. Any disconnected step made the rental lifecycle hard to trace.',
+      },
+      solution: {
+        zh: '设计资产—租赁领域模型，让合同、租住订单、退款与钱包流水联动；基于 IJPay + wechatpay-java 接入微信支付 V3/V2 与支付宝；对接通通锁（TTLock）、多版本智能电表（含 485 协议）和 ISUP 视频设备；用 iText 生成 PDF 电子合同，封装微信模板消息与小程序 OSS 直传，并补充转租/移交批次和数据报表。',
+        en: 'Designed an asset-to-lease domain model linking contracts, tenancy orders, refunds and wallet entries. Integrated WeChat Pay V3/V2 and Alipay through IJPay and wechatpay-java, connected TTLock locks, multiple meter generations including RS-485 and ISUP video devices, generated PDF contracts with iText, wrapped WeChat template messages and mini-program OSS direct upload, and added transfer/handover batches and reports.',
+      },
+      impact: {
+        zh: '打通从资产、签约、收租到硬件管控的线上闭环；电子合同、支付和钱包流水可追溯；支持转租/移交批次、数据报表与多厂商设备管理。',
+        en: 'Connected assets, contracting, rent collection and hardware control in one online loop. E-contracts, payments and wallet entries are traceable, with transfer batches, reports and multi-vendor device management.',
+      },
+      role: {
+        zh: '独立全栈开发（后端 + Web 管理端 + 微信小程序端）',
+        en: 'Solo Full-stack Developer (backend + web admin + WeChat mini-program)',
+      },
+      timeline: { zh: '2023.05 — 2023.08', en: '2023.05 — 2023.08' },
+      highlights: [
+        {
+          zh: '设计资产—租赁领域模型，合同、租住订单、退款和钱包流水联动，形成可追溯的租赁账务闭环。',
+          en: 'Designed the asset-to-lease domain model so contracts, tenancy orders, refunds and wallet entries form a traceable accounting loop.',
+        },
+        {
+          zh: '基于 IJPay 与 wechatpay-java 接入微信支付 V3/V2 和支付宝，配套钱包账户与退款流程。',
+          en: 'Integrated WeChat Pay V3/V2 and Alipay with IJPay and wechatpay-java, including wallet accounts and refunds.',
+        },
+        {
+          zh: '对接 TTLock 门锁、多版本智能电表（含 485 协议）和 ISUP 视频设备，实现绑定/解绑、租借订单下发、远程控制与用电记录。',
+          en: 'Connected TTLock locks, multiple meter generations including RS-485 and ISUP video devices for binding, rental order dispatch, remote control and electricity records.',
+        },
+        {
+          zh: '用 iText 生成电子合同，封装微信模板消息（access_token Redis 缓存）与小程序 OSS 直传，并用代码生成器搭建 CRUD。',
+          en: 'Generated e-contracts with iText, wrapped WeChat template messages with a Redis-cached access token and mini-program OSS uploads, and used a code generator for CRUD screens.',
+        },
+      ],
+    },
+    links: {},
+  },
+  {
+    id: 'provincial-platform-rebuild',
+    number: '06',
     title: {
       zh: '省级信息综合应用平台重构',
       en: 'Provincial Information Platform Re-architecture',
@@ -160,7 +328,7 @@ export const projects: Project[] = [
   },
   {
     id: 'provincial-platform-early',
-    number: '04',
+    number: '07',
     title: {
       zh: '省级信息综合应用平台（早期）',
       en: 'Provincial Information Platform (Early Phase)',

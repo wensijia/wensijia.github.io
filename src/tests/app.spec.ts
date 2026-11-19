@@ -78,7 +78,10 @@ describe('portfolio application', () => {
   it('opens and closes a project case study with a modal dialog', async () => {
     wrapper = mountApp()
     const cards = wrapper.findAll('[data-testid="project-card"]')
-    expect(cards).toHaveLength(4)
+    expect(cards).toHaveLength(7)
+    expect(cards.map((card) => card.text()).join(' ')).toContain('产业学院（cyxy）')
+    expect(cards.map((card) => card.text()).join(' ')).toContain('培训管理（pxgl）')
+    expect(cards.map((card) => card.text()).join(' ')).toContain('壹柒云居')
 
     await cards[0].trigger('click')
     await nextTick()
