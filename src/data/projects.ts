@@ -113,8 +113,8 @@ export const projects: Project[] = [
     id: 'industry-college-platform',
     number: '03',
     title: {
-      zh: '产业学院（cyxy）· 产教融合在线教育平台',
-      en: 'Industry College (cyxy) Industry-Education Platform',
+      zh: '产业学院 · 产教融合在线教育平台',
+      en: 'Industry College · Industry-Education Platform',
     },
     subtitle: {
       zh: '用技能树、考试、岗位实践与作品提交，把校企协同育人串成可追踪的成长路径。',
@@ -169,8 +169,8 @@ export const projects: Project[] = [
     id: 'training-saas-platform',
     number: '04',
     title: {
-      zh: '培训管理（pxgl）· 多租户 SaaS 培训运营平台',
-      en: 'Training Management (pxgl) Multi-tenant SaaS Platform',
+      zh: '培训管理 · 多租户 SaaS 培训运营平台',
+      en: 'Training Management · Multi-tenant SaaS Platform',
     },
     subtitle: {
       zh: '面向连锁门店培训批次，把课程、签到、缴费、食宿与开票退费串成一条运营闭环。',

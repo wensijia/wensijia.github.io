@@ -79,8 +79,8 @@ describe('portfolio application', () => {
     wrapper = mountApp()
     const cards = wrapper.findAll('[data-testid="project-card"]')
     expect(cards).toHaveLength(7)
-    expect(cards.map((card) => card.text()).join(' ')).toContain('产业学院（cyxy）')
-    expect(cards.map((card) => card.text()).join(' ')).toContain('培训管理（pxgl）')
+    expect(cards.map((card) => card.text()).join(' ')).toContain('产业学院')
+    expect(cards.map((card) => card.text()).join(' ')).toContain('培训管理')
     expect(cards.map((card) => card.text()).join(' ')).toContain('壹柒云居')
 
     await cards[0].trigger('click')
