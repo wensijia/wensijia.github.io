@@ -4,7 +4,7 @@ import { useI18n } from 'vue-i18n'
 
 import SectionHeading from '@/components/SectionHeading.vue'
 import { useLocalized } from '@/composables/useLocalized'
-import { experience } from '@/data'
+import { experience, fieldDeliveries } from '@/data'
 
 const { t } = useI18n()
 const { localize } = useLocalized()
@@ -83,6 +83,47 @@ const { localize } = useLocalized()
             </div>
           </article>
         </div>
+      </div>
+
+      <div data-testid="field-deliveries" class="mt-12 border-t border-line pt-10">
+        <div class="flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between">
+          <div>
+            <p class="eyebrow">
+              {{ t('experience.fieldLabel') }}
+            </p>
+            <h3 class="mt-2 text-xl font-semibold tracking-[-0.02em] text-ink sm:text-2xl">
+              {{ t('experience.fieldTitle') }}
+            </h3>
+          </div>
+          <p class="max-w-xl text-sm leading-6 text-ink-muted lg:text-right">
+            {{ t('experience.fieldDescription') }}
+          </p>
+        </div>
+
+        <ol class="mt-6 divide-y divide-line border-y border-line">
+          <li
+            v-for="delivery in fieldDeliveries"
+            :key="delivery.id"
+            class="grid gap-2 py-4 sm:grid-cols-[8.5rem_8rem_1fr] sm:gap-5"
+          >
+            <div class="flex flex-wrap items-center gap-x-3 gap-y-1 sm:contents">
+              <p class="font-mono text-[0.6875rem] tracking-[0.04em] text-ink">
+                {{ localize(delivery.period) }}
+              </p>
+              <p class="text-xs text-ink-muted">
+                {{ localize(delivery.location) }}
+              </p>
+            </div>
+            <div>
+              <p class="text-sm font-semibold leading-6 text-ink">
+                {{ localize(delivery.project) }}
+              </p>
+              <p class="mt-0.5 text-xs leading-5 text-ink-muted">
+                {{ localize(delivery.action) }}
+              </p>
+            </div>
+          </li>
+        </ol>
       </div>
     </div>
   </section>

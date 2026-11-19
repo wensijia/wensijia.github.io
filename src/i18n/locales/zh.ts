@@ -97,6 +97,10 @@ const messages: typeof en = {
     scopeLabel: '职责范围',
     stackLabel: '技术栈',
     highlightsLabel: '主要贡献',
+    fieldLabel: '客户现场交付',
+    fieldTitle: '从试点到上线的现场支撑',
+    fieldDescription:
+      '多次前往客户现场，承担试点、上线、团队组建与平台完善，覆盖省级、市级和跨区域交付。',
   },
   projects: {
     countLabel: '精选项目',

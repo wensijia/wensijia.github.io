@@ -12,6 +12,7 @@
 
 - **七个完整区块**：Hero、About、Skills、Experience、Projects、Education、Contact。
 - **中英文切换**：界面文案、简历数据、`<html lang>`、页面标题和 meta description 同步切换，语言偏好保存在本地。
+- **客户现场交付**：Experience 区块内以时间线展示 7 段试点、上线与现场支撑经历，城市按区域脱敏。
 - **项目详情**：卡片打开可访问的模态框，展示背景、方案、结果、职责、时间线、技术栈与链接；支持 ESC、焦点陷阱和滚动锁定。
 - **PDF 下载**：使用 `public/resume/` 下的静态文件，不依赖后端或第三方服务。
 - **联系方式**：邮箱 mailto、一键复制；配置社交链接后自动展示。
@@ -100,7 +101,7 @@ npm run build
 │   ├── data/
 │   │   ├── profile.ts             # 个人资料
 │   │   ├── skills.ts              # 技能分类
-│   │   ├── experience.ts          # 工作经历
+│   │   ├── experience.ts          # 工作经历与客户现场交付
 │   │   ├── projects.ts            # 项目与详情
 │   │   ├── education.ts           # 教育经历与认证
 │   │   └── index.ts
@@ -144,7 +145,7 @@ npm run build
 | 文件 | 内容 |
 | --- | --- |
 | `src/data/skills.ts` | 技能分类、图标和标签；按解决问题的能力组织，不展示虚构的熟练度分数 |
-| `src/data/experience.ts` | 公司、职位、时间、地点、简介、主要贡献、技术栈 |
+| `src/data/experience.ts` | 公司、职位、时间、地点、简介、主要贡献、技术栈；`fieldDeliveries` 为客户现场交付轨迹，城市只写区域 |
 | `src/data/projects.ts` | 项目卡片与详情：problem / solution / impact / role / timeline / highlights / links |
 | `src/data/education.ts` | 学位与认证 |
 
@@ -196,7 +197,7 @@ npm run typecheck
 npm run test
 ```
 
-当前 12 个测试，覆盖：
+当前 13 个测试，覆盖：
 
 - 七个区块及其可访问名称。
 - 中文默认渲染、英文切换、`lang`、标题与本地存储。
@@ -204,6 +205,7 @@ npm run test
 - PDF 下载地址、复制邮箱反馈。
 - 中英文键与插值占位符一致性。
 - 所有双语内容非空、集合 id 唯一。
+- 客户现场交付 7 条记录完整；城市名已脱敏。
 - 头像和 PDF 静态文件存在、PDF 文件头有效、社交链接为 HTTPS。
 
 ## 部署到 GitHub Pages

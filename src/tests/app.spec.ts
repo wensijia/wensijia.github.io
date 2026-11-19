@@ -58,6 +58,7 @@ describe('portfolio application', () => {
     expect(wrapper.get('h1').text()).toBe('温思嘉')
     expect(document.title).toBe('温思嘉 — 全栈工程师')
     expect(document.documentElement.lang).toBe('zh-CN')
+    expect(document.querySelector('[data-testid="field-deliveries"]')?.textContent).toContain('客户现场交付')
   })
 
   it('switches the interface and document metadata to English', async () => {

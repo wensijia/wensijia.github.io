@@ -102,6 +102,10 @@ export default {
     scopeLabel: 'Scope',
     stackLabel: 'Stack',
     highlightsLabel: 'Selected contributions',
+    fieldLabel: 'Client-site delivery',
+    fieldTitle: 'From pilot to launch, on site',
+    fieldDescription:
+      'Repeated on-site delivery across provincial and municipal platforms, from pilot support and launches to building a local team and platform refinement.',
   },
   projects: {
     countLabel: 'Selected projects',

@@ -62,6 +62,14 @@ export interface ExperienceItem {
   stack: string[]
 }
 
+export interface FieldDelivery {
+  id: string
+  period: LocalizedText
+  location: LocalizedText
+  project: LocalizedText
+  action: LocalizedText
+}
+
 export interface ProjectDetail {
   problem: LocalizedText
   solution: LocalizedText

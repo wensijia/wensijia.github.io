@@ -1,4 +1,4 @@
-import type { ExperienceItem } from '@/types/content'
+import type { ExperienceItem, FieldDelivery } from '@/types/content'
 
 /**
  * Work experience confirmed by the site owner.
@@ -93,5 +93,103 @@ export const experience: ExperienceItem[] = [
       },
     ],
     stack: ['Java', 'Spring Cloud', 'Dubbo', 'Oracle', 'MySQL', 'Kafka', 'Kubernetes'],
+  },
+]
+
+/**
+ * Client-site delivery history. Cities are intentionally reduced to regions
+ * so that public-sector client locations are not exposed.
+ */
+export const fieldDeliveries: FieldDelivery[] = [
+  {
+    id: 'delivery-2018-a',
+    period: { zh: '2018.07 — 2018.09', en: '2018.07 — 2018.09' },
+    location: { zh: '华北某省', en: 'North China province' },
+    project: {
+      zh: '省警务综合信息化应用平台',
+      en: 'Provincial police integrated information platform',
+    },
+    action: {
+      zh: '辅助完成试点、上线。',
+      en: 'Supported the pilot and launch.',
+    },
+  },
+  {
+    id: 'delivery-2019-a',
+    period: { zh: '2019.06 — 2019.07', en: '2019.06 — 2019.07' },
+    location: { zh: '西南某省', en: 'Southwest province' },
+    project: {
+      zh: '省警务综合信息化应用平台',
+      en: 'Provincial police integrated information platform',
+    },
+    action: {
+      zh: '主导完成试点、上线。',
+      en: 'Led the pilot and launch.',
+    },
+  },
+  {
+    id: 'delivery-2019-b',
+    period: { zh: '2019.10', en: '2019.10' },
+    location: { zh: '西南某市', en: 'Southwest city' },
+    project: {
+      zh: '市涉财管理中心',
+      en: 'Municipal finance management centre',
+    },
+    action: {
+      zh: '完成试点、上线。',
+      en: 'Delivered the pilot and launch.',
+    },
+  },
+  {
+    id: 'delivery-2021-a',
+    period: { zh: '2021.03 — 2021.10', en: '2021.03 — 2021.10' },
+    location: { zh: '西北某省', en: 'Northwest province' },
+    project: {
+      zh: '省执法办案系统',
+      en: 'Provincial law-enforcement case-handling system',
+    },
+    action: {
+      zh: '组建本地开发团队，完成定制化、试点、上线。',
+      en: 'Built the local development team and delivered customization, pilot and launch.',
+    },
+  },
+  {
+    id: 'delivery-2023-a',
+    period: { zh: '2023.03 — 2023.05', en: '2023.03 — 2023.05' },
+    location: { zh: '西南某自治区', en: 'Southwest autonomous region' },
+    project: {
+      zh: '省级信息综合应用平台',
+      en: 'Provincial integrated information platform',
+    },
+    action: {
+      zh: '负责新上线省平台的微服务梳理与整体完善。',
+      en: 'Led microservice review and overall refinement for the newly launched provincial platform.',
+    },
+  },
+  {
+    id: 'delivery-2024-a',
+    period: { zh: '2024.03 — 2024.05', en: '2024.03 — 2024.05' },
+    location: { zh: '东北某市', en: 'Northeast city' },
+    project: {
+      zh: '省级信息综合应用平台 · 老客户维护',
+      en: 'Provincial integrated information platform · Existing-client support',
+    },
+    action: {
+      zh: '负责完成省、市级平台梳理完善，查漏补缺。',
+      en: 'Reviewed and strengthened provincial and municipal platforms, closing gaps.',
+    },
+  },
+  {
+    id: 'delivery-2025-a',
+    period: { zh: '2025.12', en: '2025.12' },
+    location: { zh: '华南某省', en: 'South China province' },
+    project: {
+      zh: '省执法监督平台',
+      en: 'Provincial law-enforcement supervision platform',
+    },
+    action: {
+      zh: '负责完成试点、上线。',
+      en: 'Owned the pilot and launch.',
+    },
   },
 ]

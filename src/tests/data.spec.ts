@@ -7,6 +7,7 @@ import {
   certifications,
   education,
   experience,
+  fieldDeliveries,
   profile,
   projects,
   skillCategories,
@@ -50,6 +51,7 @@ describe('resume content', () => {
         profile,
         skillCategories,
         experience,
+        fieldDeliveries,
         projects,
         education,
         certifications,
@@ -65,6 +67,7 @@ describe('resume content', () => {
     const collections = [
       { name: 'skillCategories', entries: skillCategories },
       { name: 'experience', entries: experience },
+      { name: 'fieldDeliveries', entries: fieldDeliveries },
       { name: 'projects', entries: projects },
       { name: 'education', entries: education },
       { name: 'certifications', entries: certifications },
@@ -94,6 +97,33 @@ describe('resume content', () => {
 
     expect(pdf.subarray(0, 5).toString('latin1')).toBe('%PDF-')
     expect(pdf.byteLength).toBeGreaterThan(1000)
+  })
+
+  it('keeps client-site delivery locations anonymized', () => {
+    const allowedZh = [
+      '华北某省',
+      '西南某省',
+      '西南某市',
+      '西北某省',
+      '西南某自治区',
+      '东北某市',
+      '华南某省',
+    ]
+    const allowedEn = [
+      'North China province',
+      'Southwest province',
+      'Southwest city',
+      'Northwest province',
+      'Southwest autonomous region',
+      'Northeast city',
+      'South China province',
+    ]
+
+    fieldDeliveries.forEach((delivery) => {
+      expect(allowedZh).toContain(delivery.location.zh)
+      expect(allowedEn).toContain(delivery.location.en)
+      expect(delivery.id).toMatch(/^delivery-\d{4}-[a-z]$/)
+    })
   })
 
   it('uses secure URLs for public social links', () => {
