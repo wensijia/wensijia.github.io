@@ -11,6 +11,8 @@
     font-size: 17px;
     scroll-behavior: smooth;
     scroll-padding-top: 6.25rem;
+    /* Reserve the scrollbar gutter so opening the modal does not shift the page. */
+    scrollbar-gutter: stable;
   }
 
   @media (min-width: 640px) {
