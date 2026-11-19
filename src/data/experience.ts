@@ -10,7 +10,7 @@ export const experience: ExperienceItem[] = [
   {
     id: 'role-current',
     company: { zh: '道路交通安全综合治理产品团队', en: 'Road Traffic Safety Product Team' },
-    role: { zh: '架构师 / 全栈开发', en: 'Architect / Full-stack Developer' },
+    role: { zh: '全栈工程师', en: 'Full-stack Engineer' },
     period: { zh: '2026.04 — 至今', en: '2026.04 — Present' },
     location: { zh: '成都，中国', en: 'Chengdu, China' },
     summary: {

@@ -56,10 +56,8 @@ describe('portfolio application', () => {
     })
 
     expect(wrapper.get('h1').text()).toBe('温思嘉')
-    expect(document.title).toContain('温思嘉')
+    expect(document.title).toBe('温思嘉 — 全栈工程师')
     expect(document.documentElement.lang).toBe('zh-CN')
-    expect(wrapper.get('[data-testid="analytics-stats"]').text()).toContain('本页浏览')
-    expect(document.getElementById('busuanzi-page-view-script')).toBeNull()
   })
 
   it('switches the interface and document metadata to English', async () => {
@@ -71,7 +69,8 @@ describe('portfolio application', () => {
 
     expect(wrapper.get('h1').text()).toBe('Sijia Wen')
     expect(document.documentElement.lang).toBe('en')
-    expect(document.title).toContain('Sijia Wen')
+    expect(document.title).toBe('Sijia Wen — Full-stack Engineer')
+    expect(document.title).not.toContain('Personal Portfolio')
     expect(window.localStorage.getItem('portfolio-locale')).toBe('en')
     expect(wrapper.get('[data-testid="locale-toggle"]').text()).toContain('EN')
   })

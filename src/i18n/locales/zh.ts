@@ -2,8 +2,7 @@ import type en from './en'
 
 const messages: typeof en = {
   meta: {
-    titleSuffix: '个人作品集',
-    description: '温思嘉，后端架构师与全栈工程师，9 年复杂业务系统架构与交付经验。',
+    description: '温思嘉，全栈工程师，9 年复杂业务系统架构与全栈交付经验。',
   },
   nav: {
     about: '关于',
@@ -132,16 +131,12 @@ const messages: typeof en = {
     resumeDescription: '使用静态 PDF 文件，下载稳定，在所有设备上都能正常打开。',
     resumeMeta: 'PDF · 静态文件',
     socialLabel: '在线找到我',
-    note: '没有后端；只有清晰的联系方式与轻量的访问统计。',
+    note: '没有后端；只有清晰直接的联系方式。',
   },
   footer: {
     tagline: '清晰的设计，真实的内容，有用的技术。',
     rights: '保留所有权利。',
     builtWith: '使用 Vue 3、TypeScript 与 Vite 构建。',
-    analyticsLabel: '访问统计',
-    siteViews: '本站访问',
-    uniqueVisitors: '访客',
-    pageViews: '本页浏览',
   },
 }
 

@@ -1,19 +1,13 @@
 <script setup lang="ts">
-import { ArrowUp, BarChart3 } from 'lucide-vue-next'
-import { onMounted } from 'vue'
+import { ArrowUp } from 'lucide-vue-next'
 import { useI18n } from 'vue-i18n'
 
 import { useLocalized } from '@/composables/useLocalized'
 import { profile } from '@/data'
-import { injectBusuanziScript, shouldLoadPageViews } from '@/utils/analytics'
 
 const { t } = useI18n()
 const { localize } = useLocalized()
 const currentYear = new Date().getFullYear()
-
-onMounted(() => {
-  if (shouldLoadPageViews()) injectBusuanziScript()
-})
 </script>
 
 <template>
@@ -43,36 +37,6 @@ onMounted(() => {
           <p class="font-mono text-[0.625rem] text-ink-muted/80">
             {{ t('footer.builtWith') }}
           </p>
-        </div>
-      </div>
-
-      <div class="mt-6 flex flex-col gap-3 border-t border-line pt-4 sm:flex-row sm:items-center sm:justify-between">
-        <p class="inline-flex items-center gap-1.5 font-mono text-[0.625rem] uppercase tracking-[0.14em] text-ink-muted/80">
-          <BarChart3 :size="12" :stroke-width="1.8" aria-hidden="true" />
-          {{ t('footer.analyticsLabel') }}
-        </p>
-        <div
-          data-testid="analytics-stats"
-          class="flex flex-wrap items-center gap-x-5 gap-y-1.5 text-[0.6875rem] text-ink-muted"
-        >
-          <span class="inline-flex items-baseline gap-1.5">
-            {{ t('footer.siteViews') }}
-            <strong class="font-mono font-medium tabular-nums text-ink">
-              <span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv">—</span></span>
-            </strong>
-          </span>
-          <span class="inline-flex items-baseline gap-1.5">
-            {{ t('footer.uniqueVisitors') }}
-            <strong class="font-mono font-medium tabular-nums text-ink">
-              <span id="busuanzi_container_site_uv"><span id="busuanzi_value_site_uv">—</span></span>
-            </strong>
-          </span>
-          <span class="inline-flex items-baseline gap-1.5">
-            {{ t('footer.pageViews') }}
-            <strong class="font-mono font-medium tabular-nums text-ink">
-              <span id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">—</span></span>
-            </strong>
-          </span>
         </div>
       </div>
     </div>

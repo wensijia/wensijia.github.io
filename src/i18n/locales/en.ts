@@ -1,8 +1,7 @@
 export default {
   meta: {
-    titleSuffix: 'Personal Portfolio',
     description:
-      'Sijia Wen is a backend architect and full-stack engineer with nine years of experience delivering complex business systems.',
+      'Sijia Wen is a full-stack engineer with nine years of experience in backend architecture and complex business systems.',
   },
   nav: {
     about: 'About',
@@ -138,15 +137,11 @@ export default {
       'A static PDF keeps the download reliable and works on every device.',
     resumeMeta: 'PDF · Static file',
     socialLabel: 'Find me online',
-    note: 'No backend. Just a clear way to get in touch, with lightweight page-view statistics.',
+    note: 'No backend. Just a clear way to get in touch.',
   },
   footer: {
     tagline: 'Clear design, honest content, useful technology.',
     rights: 'All rights reserved.',
     builtWith: 'Built with Vue 3, TypeScript and Vite.',
-    analyticsLabel: 'Site statistics',
-    siteViews: 'Site visits',
-    uniqueVisitors: 'Visitors',
-    pageViews: 'This page',
   },
 }

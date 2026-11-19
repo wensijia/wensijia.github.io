@@ -26,7 +26,7 @@ watch(
   [locale, pageTitle],
   () => {
     document.documentElement.lang = locale.value === 'zh' ? 'zh-CN' : 'en'
-    document.title = `${pageTitle.value} | ${t('meta.titleSuffix')}`
+    document.title = pageTitle.value
 
     const description = document.querySelector<HTMLMetaElement>('meta[name="description"]')
     description?.setAttribute('content', t('meta.description'))

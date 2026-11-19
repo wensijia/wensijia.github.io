@@ -15,8 +15,8 @@ export const profile: Profile = {
   },
   initials: 'WSJ',
   role: {
-    zh: '后端架构师 / 全栈',
-    en: 'Backend Architect / Full-stack',
+    zh: '全栈工程师',
+    en: 'Full-stack Engineer',
   },
   headline: {
     zh: '9 年后端架构，专注复杂系统、全栈交付与 AI 工程化。',
@@ -56,7 +56,7 @@ export const profile: Profile = {
   quickFacts: [
     {
       label: { zh: '当前职位', en: 'Current role' },
-      value: { zh: '架构师 / 全栈开发', en: 'Architect / Full-stack Developer' },
+      value: { zh: '全栈工程师', en: 'Full-stack Engineer' },
     },
     {
       label: { zh: '所在城市', en: 'Location' },
